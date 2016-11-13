@@ -37,7 +37,7 @@ class Reactor implements Runnable {
 
                 while (it.hasNext()) {
                     SelectionKey sk = (SelectionKey) it.next();
-                    it.remove();
+                    it.remove();//Q : 必须remove？ 通用的做法？ 
                     Runnable r = (Runnable) sk.attachment();
                     if (r != null)
                         r.run();
