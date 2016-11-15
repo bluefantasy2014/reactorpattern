@@ -56,8 +56,12 @@ class Handler implements Runnable {
         bytes = new byte[readBuf.remaining()];
         readBuf.get(bytes, 0, bytes.length);
         //J: bytes中存放的数据是真正读取到的数据。 
-        LOG.info("process(): " + new String(bytes, Charset.forName("ISO-8859-1")));
+        LOG.info("process(): " + new String(bytes, Charset.forName("UTF-8")));
  
+        for (int i=0; i<bytes.length; ++i){
+        	LOG.debug(""+bytes[i]);
+        }
+        
         //J: 将读取到的数据放进writeBuf里。 
         writeBuf = ByteBuffer.wrap(bytes);
  
