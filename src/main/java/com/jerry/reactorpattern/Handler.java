@@ -63,9 +63,7 @@ class Handler implements Runnable {
  
         // Set the key's interest to WRITE operation
         //J: 将interestOps设置为读 (sslectionKey.OP_WRITE)
-//        LOG.info("before setting selKey's interestOps :" + selKey.interestOps()+ ", " + selKey);
         selKey.interestOps(SelectionKey.OP_WRITE);
-//        LOG.info("after setting selKey's interestOps :" + selKey.interestOps());
         selKey.selector().wakeup();
     }
  
